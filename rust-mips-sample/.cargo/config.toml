@@ -1,0 +1,11 @@
+[build]
+target = "mipsel-unknown-linux-musl"
+
+[target.mipsel-unknown-linux-musl]
+linker = "../toolchains/mipsel-linux-musl-cross/bin/mipsel-linux-musl-gcc"
+rustflags = [
+  "-C", "target-feature=+crt-static",
+  "-L", "../toolchains/mipsel-linux-musl-cross-extra/",
+  "-L", "../toolchains/mipsel-linux-musl-cross/mipsel-linux-musl/lib/",
+  "-L", "../toolchains/mipsel-linux-musl-cross/lib/gcc/mipsel-linux-musl/11.2.1",
+]
